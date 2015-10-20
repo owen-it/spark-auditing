@@ -150,6 +150,11 @@ return [
          */
         Laravel\Spark\Providers\SparkServiceProvider::class,
         App\Providers\SparkServiceProvider::class,
+
+        /**
+         * Laravel auditing Service Providers...
+         */
+        OwenIt\Auditing\AuditingServiceProvider::class,
     ],
 
     /*
