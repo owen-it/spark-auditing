@@ -1,5 +1,5 @@
-<?php
-namespace App;
+<?php namespace App;
+
 use Laravel\Cashier\Billable;
 use Laravel\Spark\Teams\CanJoinTeams;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +11,8 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Laravel\Spark\Auth\TwoFactor\Authenticatable as TwoFactorAuthenticatable;
 use Laravel\Spark\Contracts\Auth\TwoFactor\Authenticatable as TwoFactorAuthenticatableContract;
 use OwenIt\Auditing\Auditing;
-class User extends Model implements AuthorizableContract,
+
+class User extends Auditing implements AuthorizableContract,
     BillableContract,
     CanResetPasswordContract,
     TwoFactorAuthenticatableContract
@@ -37,7 +38,7 @@ class User extends Model implements AuthorizableContract,
      * @var array
      */
     protected $appends = [
-        'using_two_factor_auth'
+        'using_two_factor_auth',
     ];
     /**
      * The attributes excluded from the model's JSON form.
@@ -46,7 +47,7 @@ class User extends Model implements AuthorizableContract,
      */
     protected $hidden = [
         'password', 'remember_token', 'two_factor_options',
-        'stripe_id', 'stripe_subscription', 'last_four', 'extra_billing_info'
+        'stripe_id', 'stripe_subscription', 'last_four', 'extra_billing_info',
     ];
     /**
      * The attributes that should be mutated to dates.
@@ -68,6 +69,6 @@ class User extends Model implements AuthorizableContract,
     public static $logCustomFields = [
         'name'  => 'The name was defined as {new.name}',
         'email'  => 'The email was defined as {new.email}',
-        'phone_number' => 'The phone number was defined as {new.phone_country_code} {new.phone_number}'
+        'phone_number' => 'The phone number was defined as {new.phone_country_code} {new.phone_number}',
     ];
 }
