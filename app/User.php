@@ -59,6 +59,11 @@ class User extends Auditing implements AuthorizableContract,
     ];
 
     /**
+     * @var array
+     */
+    protected $dontKeepLogOf = ['created_at', 'updated_at'];
+
+    /**
      * @var string
      */
     public static $logCustomMessage = 'User {new.name|empty} {type} ';
