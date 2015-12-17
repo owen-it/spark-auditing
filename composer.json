@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "owen-it/spark-auditing",
+    "description": "App demo to package laravel-auditing.",
+    "keywords": ["framework", "laravel", "auditing", "audit", "log"],
     "license": "MIT",
     "type": "project",
     "require": {
